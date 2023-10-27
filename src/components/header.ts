@@ -1,3 +1,4 @@
+import { MenuOption } from '../types';
 import { Component } from './component';
 import { Menu } from './menu';
 

@@ -1,8 +1,9 @@
+import { Card } from '../types';
 import { Component } from './component';
 
 export class List extends Component {
-  cards: Cards[];
-  constructor(selector: string, cards: Cards[]) {
+  cards: Card[];
+  constructor(selector: string, cards: Card[]) {
     super(selector);
     this.cards = cards;
     this.template = this.createTemplate();
@@ -11,10 +12,14 @@ export class List extends Component {
 
   render() {
     super.render();
-    // const cards = new Card()
+    // Const cards = new Card()
   }
 
   createTemplate() {
-    return `<ul></ul>`;
+    return `
+    <div class="list-container">
+    <ul class="list">
+    </ul>
+    </div>`;
   }
 }
