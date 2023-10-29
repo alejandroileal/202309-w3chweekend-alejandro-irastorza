@@ -16,6 +16,7 @@ export class Cards extends Component {
 	nextCard() {
 		if (this.currentCard === this.card.length - 1) {
 			this.currentCard = 0;
+			return;
 		}
 
 		this.currentCard++;
@@ -24,6 +25,7 @@ export class Cards extends Component {
 	previousCard() {
 		if (this.currentCard === 0) {
 			this.currentCard = this.card.length - 1;
+			return;
 		}
 
 		this.currentCard--;
@@ -55,6 +57,7 @@ export class Cards extends Component {
 
 	createTemplate() {
 		return `<li class="pokemon">
+		<h3>${this.currentCard + 1}/${this.card.length}</h3>
     <div class="card-image-container">
         <img src="./${this.card[this.currentCard].name}.gif">
         </div>
