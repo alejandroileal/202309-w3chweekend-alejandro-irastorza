@@ -21,13 +21,13 @@ export class Cards extends Component {
 		this.currentCard++;
 	}
 
-	// PreviousCard() {
-	//   if (this.currentCard < 0) {
-	//     this.currentCard = this.card.length - 1;
-	//   }
+	previousCard() {
+		if (this.currentCard === 0) {
+			this.currentCard = this.card.length - 1;
+		}
 
-	//   this.currentCard--;
-	// }
+		this.currentCard--;
+	}
 
 	handleNextButton = (event: Event) => {
 		event.preventDefault();
@@ -38,14 +38,14 @@ export class Cards extends Component {
 		this.render();
 	};
 
-	// HandlePrevioustButton = (event: Event) => {
-	// 	event.preventDefault();
-	// 	this.previousCard();
-	// 	this.clear();
-	// 	console.log(this.currentCard);
-	// 	this.template = this.createTemplate();
-	// 	this.render();
-	// };
+	handlePrevioustButton = (event: Event) => {
+		event.preventDefault();
+		this.previousCard();
+		this.clear();
+		console.log(this.currentCard);
+		this.template = this.createTemplate();
+		this.render();
+	};
 
 	manageComponent() {
 		this.template = this.createTemplate();
@@ -72,7 +72,11 @@ export class Cards extends Component {
 	render() {
 		super.render();
 		const domNextButton = document.querySelector('.next-button');
-
+		const domPreviousButton = document.querySelector('.previous-button');
 		domNextButton?.addEventListener('click', this.handleNextButton.bind(this));
+		domPreviousButton?.addEventListener(
+			'click',
+			this.handlePrevioustButton.bind(this)
+		);
 	}
 }
