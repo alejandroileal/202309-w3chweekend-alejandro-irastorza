@@ -16,18 +16,20 @@ export class Cards extends Component {
 	nextCard() {
 		if (this.currentCard === this.card.length - 1) {
 			this.currentCard = 0;
+			return;
 		}
 
 		this.currentCard++;
 	}
 
-	// PreviousCard() {
-	//   if (this.currentCard < 0) {
-	//     this.currentCard = this.card.length - 1;
-	//   }
+	previousCard() {
+		if (this.currentCard === 0) {
+			this.currentCard = this.card.length - 1;
+			return;
+		}
 
-	//   this.currentCard--;
-	// }
+		this.currentCard--;
+	}
 
 	handleNextButton = (event: Event) => {
 		event.preventDefault();
@@ -38,14 +40,14 @@ export class Cards extends Component {
 		this.render();
 	};
 
-	// HandlePrevioustButton = (event: Event) => {
-	// 	event.preventDefault();
-	// 	this.previousCard();
-	// 	this.clear();
-	// 	console.log(this.currentCard);
-	// 	this.template = this.createTemplate();
-	// 	this.render();
-	// };
+	handlePrevioustButton = (event: Event) => {
+		event.preventDefault();
+		this.previousCard();
+		this.clear();
+		console.log(this.currentCard);
+		this.template = this.createTemplate();
+		this.render();
+	};
 
 	manageComponent() {
 		this.template = this.createTemplate();
@@ -55,6 +57,7 @@ export class Cards extends Component {
 
 	createTemplate() {
 		return `<li class="pokemon">
+		<h3>${this.currentCard + 1}/${this.card.length}</h3>
     <div class="card-image-container">
         <img src="./${this.card[this.currentCard].name}.gif">
         </div>
@@ -72,7 +75,11 @@ export class Cards extends Component {
 	render() {
 		super.render();
 		const domNextButton = document.querySelector('.next-button');
-
+		const domPreviousButton = document.querySelector('.previous-button');
 		domNextButton?.addEventListener('click', this.handleNextButton.bind(this));
+		domPreviousButton?.addEventListener(
+			'click',
+			this.handlePrevioustButton.bind(this)
+		);
 	}
 }

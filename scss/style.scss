@@ -17,6 +17,11 @@ body {
 h3 {
 	color: white;
 	text-align: center;
+	margin: 0;
+	background-color: black;
+	padding: 0.5rem;
+	border-radius: 30px;
+	margin-bottom: 0rem;
 }
 
 header {
@@ -50,7 +55,7 @@ nav {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	height: 16rem;
+	gap: 1rem;
 }
 
 .list-container {
@@ -62,7 +67,7 @@ nav {
 		li {
 			background-color: gray;
 			padding: 2rem;
-			height: 30rem;
+			height: auto;
 			border-radius: 30px;
 			a {
 				color: black;
@@ -87,6 +92,7 @@ nav {
 				height: 15rem;
 				align-items: center;
 				justify-content: center;
+				margin-block: 1rem;
 			}
 			img {
 				border-radius: 30px;

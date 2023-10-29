@@ -18,6 +18,11 @@ body {
 h3 {
   color: white;
   text-align: center;
+  margin: 0;
+  background-color: black;
+  padding: 0.5rem;
+  border-radius: 30px;
+  margin-bottom: 0rem;
 }
 
 header {
@@ -48,7 +53,7 @@ nav ul li a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 16rem;
+  gap: 1rem;
 }
 
 .list-container ul {
@@ -60,7 +65,7 @@ nav ul li a {
 .list-container ul li {
   background-color: gray;
   padding: 2rem;
-  height: 30rem;
+  height: auto;
   border-radius: 30px;
 }
 .list-container ul li a {
@@ -86,6 +91,7 @@ nav ul li a {
   height: 15rem;
   align-items: center;
   justify-content: center;
+  margin-block: 1rem;
 }
 .list-container ul li img {
   border-radius: 30px;
