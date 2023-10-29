@@ -2,6 +2,10 @@ import { Component } from './component';
 import { Card } from '../types';
 import { cardCounter } from './repo/api.repo';
 
+function printCounter(currentCount: number, totalCounter: number) {
+  return `<h3>${currentCount}/${totalCounter}</h3>`;
+}
+
 export class Cards extends Component {
   card: Card;
   currentCard: number;

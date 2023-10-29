@@ -36,7 +36,6 @@ export class List extends Component {
   createTemplate() {
     return `
     <div class="list-container">
-    <h3>${cardCounter}/${this.pokemons.length}<h3>
     <ul class="list">
     </ul>
     </div>`;

@@ -11,8 +11,6 @@ body {
 
 #app {
   border: 4px;
-  border-style: solid;
-  border-color: aqua;
   max-width: 900px;
   margin-inline: auto;
 }
