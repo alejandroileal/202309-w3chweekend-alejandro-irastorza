@@ -6,6 +6,7 @@ export abstract class Component {
     this.selector = selector;
   }
 
+  // eslint-disable-next-line no-undef
   render(position: InsertPosition = 'beforeend') {
     const element = document.querySelector(this.selector);
     if (!element) {
