@@ -1,65 +1,60 @@
 import { Component } from './component';
 import { Card } from '../types';
-import { cardCounter } from './repo/api.repo';
-
-function printCounter(currentCount: number, totalCounter: number) {
-  return `<h3>${currentCount}/${totalCounter}</h3>`;
-}
 
 export class Cards extends Component {
-  card: Card;
-  currentCard: number;
-  constructor(selector: string, card: Card) {
-    super(selector);
-    this.card = card;
-    this.currentCard = 0;
-    console.log('Card List:');
-    console.log(this.card);
-    this.manageComponent();
-  }
+	card: Card[];
+	currentCard: number;
+	constructor(selector: string, card: Card[]) {
+		super(selector);
+		this.card = card;
+		this.currentCard = 0;
+		console.log('Card List:');
+		console.log(this.card);
+		this.manageComponent();
+	}
 
-  nextCard() {
-    if (this.currentCard === this.card.length - 1) {
-      this.currentCard = 0;
-    }
+	nextCard() {
+		if (this.currentCard === this.card.length - 1) {
+			this.currentCard = 0;
+		}
 
-    this.currentCard++;
-  }
+		this.currentCard++;
+	}
 
-  // PreviousCard() {
-  //   if (this.currentCard < 0) {
-  //     this.currentCard = this.card.length - 1;
-  //   }
+	// PreviousCard() {
+	//   if (this.currentCard < 0) {
+	//     this.currentCard = this.card.length - 1;
+	//   }
 
-  //   this.currentCard--;
-  // }
+	//   this.currentCard--;
+	// }
 
-  handleNextButton = (event: Event) => {
-    event.preventDefault();
-    this.nextCard();
-    this.clear();
-    console.log(this.currentCard);
-    this.template = this.createTemplate();
-    this.render();
-  };
+	handleNextButton = (event: Event) => {
+		event.preventDefault();
+		this.nextCard();
+		this.clear();
+		console.log(this.currentCard);
+		this.template = this.createTemplate();
+		this.render();
+	};
 
-  handlePrevioustButton = (event: Event) => {
-    event.preventDefault();
-    this.previousCard();
-    this.clear();
-    console.log(this.currentCard);
-    this.template = this.createTemplate();
-    this.render();
-  };
+	// HandlePrevioustButton = (event: Event) => {
+	// 	event.preventDefault();
+	// 	this.previousCard();
+	// 	this.clear();
+	// 	console.log(this.currentCard);
+	// 	this.template = this.createTemplate();
+	// 	this.render();
+	// };
 
-  manageComponent() {
-    this.template = this.createTemplate();
-    this.render();
-    console.log('Manage Component');
-  }
+	manageComponent() {
+		this.template = this.createTemplate();
+		this.render();
+		console.log('Manage Component');
+	}
 
-  createTemplate() {
-    return `<li class="pokemon">
+	createTemplate() {
+		return `<li class="pokemon">
     <div class="card-image-container">
         <img src="./${this.card[this.currentCard].name}.gif">
         </div>
@@ -72,12 +67,12 @@ export class Cards extends Component {
       </div>
       </div>
       </li>`;
-  }
+	}
 
-  render() {
-    super.render();
-    document
-      .querySelector('.next-button')
-      .addEventListener('click', this.handleNextButton.bind(this));
-  }
+	render() {
+		super.render();
+		const domNextButton = document.querySelector('.next-button');
+
+		domNextButton?.addEventListener('click', this.handleNextButton.bind(this));
+	}
 }
