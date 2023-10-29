@@ -1,9 +1,11 @@
+import { ApiRepo } from './repo/api.repo';
+
 jest.mock('../data/repo');
 
-ApiRepo.prototype.getTasks = jest.fn();
+ApiRepo.prototype.getPokemos = jest.fn();
 
 describe('Given List component', () => {
-	(load as jest.Mock).mockReturnValue([{}]);
+	(getPokemos() as jest.Mock).mockReturnValue([{}]);
 	describe('When we instantiate', () => {
 		document.body.innerHTML = '<div></div>';
 		const list = new List('div');
